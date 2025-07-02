@@ -18,7 +18,7 @@ organizations:
     url: 'https://mae.ucf.edu/person/yuewen/'
 
 # Short bio (displayed in user profile at end of posts)
-bio: Dr. Yue Wen is an Assistant Professor in the Department of Aerospace and Mechanical Engineering and a member of the Disability, Aging, and Technology (DAT) Cluster at the University of Central Florida. Prior to that, he was a postdoctoral researcher at Shirley Ryan AbilityLab (formerly RIC) and Northwestern University, Chicago. He received a Ph.D. degree in Biomedical Engineering from the Joint Department of Biomedical Engineering at the University of North Carolina at Chapel Hill and North Carolina State University in 2019. 
+bio: Yue Wen is an Assistant Professor in the Department of Aerospace and Mechanical Engineering and a member of the Disability, Aging, and Technology (DAT) Cluster at the University of Central Florida. 
 
 
 interests:
@@ -72,6 +72,4 @@ user_groups:
   - Principal Investigators
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+Dr. Yue Wen is an Assistant Professor in the Department of Aerospace and Mechanical Engineering and a member of the Disability, Aging, and Technology (DAT) Cluster at the University of Central Florida. Prior to that, he was a postdoctoral researcher at Shirley Ryan AbilityLab (formerly RIC) and Northwestern University, Chicago. He received a Ph.D. degree in Biomedical Engineering from the Joint Department of Biomedical Engineering at the University of North Carolina at Chapel Hill and North Carolina State University in 2019. 
