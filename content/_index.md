@@ -8,8 +8,7 @@ sections:
   - block: hero
     content:
       title: |
-        Wowchemy
-        Research Group
+        Wearable Engineering and Neural Interface Laboratory
       image:
         filename: welcome.jpg
       text: |
