@@ -24,3 +24,6 @@ sections:
       show_role: true
       show_social: true
 ---
+
+## Lab Alumni
+1. Jirui Fu, Ph.D. 2024
