@@ -3,7 +3,7 @@
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: Wearable Engineering and Neural Interface Laboratory # Website name
+title: WEN LAB # Website name
 baseURL: 'https://wearable-2023.github.io' # Website URL
 
 ############################
