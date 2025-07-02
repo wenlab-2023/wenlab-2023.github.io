@@ -1,41 +1,44 @@
 ---
 # Display name
-title: Nelson Bighetti
+title: Yue Wen Ph.D.
 
 # Full Name (for SEO)
-first_name: Nelson
-last_name: Bighetti
+first_name: Yue
+last_name: Wen
 
 # Is this the primary user of the site?
 superuser: true
 
 # Role/position
-role: Professor of Artificial Intelligence
+role: Assistant Professor
 
 # Organizations/Affiliations
 organizations:
-  - name: Stanford University
-    url: ''
+  - name: University of Central Florida
+    url: 'https://mae.ucf.edu/person/yuewen/'
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: Dr. Yue Wen is an Assistant Professor in the Department of Aerospace and Mechanical Engineering and a member of the Disability, Aging, and Technology (DAT) Cluster at the University of Central Florida. Prior to that, he was a postdoctoral researcher at Shirley Ryan AbilityLab (formerly RIC) and Northwestern University, Chicago. He received a Ph.D. degree in Biomedical Engineering from the Joint Department of Biomedical Engineering at the University of North Carolina at Chapel Hill and North Carolina State University in 2019. 
+
 
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Reinforcement learning for robotics
+  - Human-in-the-loop optimization/personalization of wearable robots
+  - Deep learning
+  - Neural-machine interface
+  - Gait rehabilitation
 
 education:
   courses:
-    - course: PhD in Artificial Intelligence
-      institution: Stanford University
-      year: 2012
-    - course: MEng in Artificial Intelligence
-      institution: Massachusetts Institute of Technology
-      year: 2009
-    - course: BSc in Artificial Intelligence
-      institution: Massachusetts Institute of Technology
-      year: 2008
+    - course: PhD in Biomedical Engineering
+      institution: The University of North Carolina at Chapel Hill and North Carolina State University
+      year: 2019
+    - course: M.S. in Control Theory and Engineering
+      institution: Huazhong University of Science and Technology, Wuhan, Hubei Province, China PRC
+      year: 2014
+    - course: B.S. in School of Automation
+      institution: Wuhan University of Technology, Wuhan, Hubei Province, China PRC
+      year: 2011
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons
