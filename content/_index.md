@@ -8,13 +8,13 @@ sections:
   - block: hero
     content:
       title: |
-        Wearable Engineering and Neural Interface Laboratory
+        WEN Lab
       image:
         filename: welcome.jpg
       text: |
         <br>
         
-        The **Wowchemy Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
+        The **W**earable **E**ngineering and **N**eural Interface Laboratory (WEN Lab)  has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
   
   - block: collection
     content:
