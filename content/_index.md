@@ -8,7 +8,8 @@ sections:
   - block: hero
     content:
       title: |
-        WEN Lab
+        Wearable Engineering and 
+        Neural Interface Laboratory
       image:
         filename: welcome.jpg
       text: |
