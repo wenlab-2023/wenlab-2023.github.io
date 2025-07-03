@@ -4,7 +4,7 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: WEN Lab @ UCF # Website name
-baseURL: 'https://wearable-2023.github.io' # Website URL
+baseURL: 'https://wenlab-2023.github.io' # Website URL
 
 ############################
 ## LANGUAGE
