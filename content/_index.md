@@ -15,7 +15,7 @@ sections:
       text: |
         <br>
         
-        The **W**earable **E**ngineering and **N**eural Interface Laboratory (WEN Lab) at the University of Central Florida was established since 2023. Our research focus on locomotion rehabolitation, wearable engineering, robotics, and neural machine interface.
+        The **W**earable **E**ngineering and **N**eural Interface Laboratory (WEN Lab) at University of Central Florida has been a center of excellence for rehabolitation, wearable engineering, robotics and neural machine interface since its founding in 2023.
   
   - block: collection
     content:
