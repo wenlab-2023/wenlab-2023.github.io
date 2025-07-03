@@ -15,10 +15,10 @@ role: Postdoctoral Scholar
 # Organizations/Affiliations
 organizations:
   - name: University of Central Florida
-    url: 'https://mae.ucf.edu/person/yuewen/'
+    url: 'https://drjiruifu.com'
 
 # Short bio (displayed in user profile at end of posts)
-bio: Yue Wen is an Assistant Professor in the Department of Aerospace and Mechanical Engineering and a member of the Disability, Aging, and Technology (DAT) Cluster at the University of Central Florida. 
+bio: Jirui Fu is a post-doctoral scholar working at the Wen lab and BRaIN lab in UCF. His research focus on neural machine interface, mobile brain/body imaging, and wearable robotics
 
 
 interests:
@@ -69,7 +69,7 @@ highlight_name: false
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
-  - Alumni
+  - Post-doctoral Reseachers
 ---
 
 Dr. Yue Wen is an Assistant Professor in the Department of Aerospace and Mechanical Engineering and a member of the Disability, Aging, and Technology (DAT) Cluster at the University of Central Florida. Prior to that, he was a postdoctoral researcher at Shirley Ryan AbilityLab (formerly RIC) and Northwestern University, Chicago. He received a Ph.D. degree in Biomedical Engineering from the Joint Department of Biomedical Engineering at the University of North Carolina at Chapel Hill and North Carolina State University in 2019. 
