@@ -17,8 +17,8 @@ marketing:
   seo:
     site_type: Organization
     local_business_type: ''
-    org_name: ''
-    description: ''
+    org_name: 'WEN Lab'
+    description: 'Wearable Engineering and Neural Interface Laboratory'
     twitter: 'GetResearchDev'
   analytics:
     google_analytics: ''
