@@ -3,7 +3,10 @@ title: 'Neural-Machine Interface for Wearable Robotics: A Deep Learning Approach
 
 # Authors
 authors:
+  - Wei Zhang
   - admin
+  - Qingyuan Li
+  - Jean Doe
 
 date: '2022-12-01T00:00:00Z'
 doi: '10.1109/TBME.2022.9876543'

@@ -4,6 +4,8 @@ title: 'Gait Rehabilitation Robotics: Personalized Control Strategies'
 # Authors
 authors:
   - admin
+  - Sarah Johnson
+  - Michael Chen
 
 date: '2023-03-01T00:00:00Z'
 doi: ''

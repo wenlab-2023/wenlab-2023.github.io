@@ -4,6 +4,9 @@ title: 'Adaptive Control of Wearable Robots: A Comprehensive Review'
 # Authors
 authors:
   - admin
+  - Sarah Johnson
+  - Michael Chen
+  - David Wilson
 
 date: '2023-01-01T00:00:00Z'
 doi: '10.1109/TRO.2023.1234567'

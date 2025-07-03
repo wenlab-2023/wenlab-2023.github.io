@@ -4,6 +4,9 @@ title: 'Human-in-the-Loop Optimization for Wearable Robotics: A Real-Time Approa
 # Authors
 authors:
   - admin
+  - Alex Thompson
+  - Rachel Green
+  - Maria Rodriguez
 
 date: '2023-05-01T00:00:00Z'
 doi: '10.1109/ICRA48891.2023.10161234'

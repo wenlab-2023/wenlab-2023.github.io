@@ -3,7 +3,10 @@ title: 'Reinforcement Learning for Robotic Control: From Theory to Practice'
 
 # Authors
 authors:
+  - Emily Davis
   - admin
+  - Robert Smith
+  - Jennifer Lee
 
 date: '2022-06-01T00:00:00Z'
 doi: '10.1016/j.robot.2022.104567'
