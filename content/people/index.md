@@ -27,24 +27,13 @@ sections:
     content:
       title: Lab Alumni
       text: |
-        ## Former Lab Members
-        
-        ### Post-doctoral Researchers
-        - **Dr. John Smith** (2020-2022) - Now Assistant Professor at University of California
-        - **Dr. Sarah Johnson** (2019-2021) - Now Research Scientist at Google Research
-        
         ### Graduate Students
-        - **Michael Chen** (M.S. 2021) - Now Software Engineer at Tesla
-        - **Emily Davis** (Ph.D. 2020) - Now Post-doctoral Researcher at MIT
-        - **David Wilson** (M.S. 2019) - Now Robotics Engineer at Boston Dynamics
+        - **Qingyuan Li** (M.S. 2024) - Now pursuing Ph.D. at XXX University
         
         ### Undergraduate Students
-        - **Alex Thompson** (B.S. 2022) - Now pursuing Ph.D. at Stanford University
-        - **Rachel Green** (B.S. 2021) - Now pursuing M.S. at Carnegie Mellon University
+        - **Jean Doe** (B.S. 2022) - Now pursuing Ph.D. at Stanford University
         
-        ### Visiting Scholars
-        - **Dr. Maria Rodriguez** (2021) - Visiting from Universidad de Madrid
-        - **Prof. Wei Zhang** (2020) - Visiting from Tsinghua University
+
     design:
       columns: '1'
 ---
