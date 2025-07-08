@@ -16,9 +16,6 @@ main:
   - name: Publications
     url: publication
     weight: 40
-  - name: News
-    url: news
-    weight: 40
   - name: Join Us
     url: contact
     weight: 40
