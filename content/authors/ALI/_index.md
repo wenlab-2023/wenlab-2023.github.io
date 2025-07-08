@@ -1,10 +1,10 @@
 ---
 # Display name
-title: Clara Rodriguez
+title: Ali Eshtehardi
 
 # Full Name (for SEO)
-first_name: Clara 
-last_name: Rodriguez
+first_name: Ali 
+last_name: Eshtehardi
 
 # Is this the primary user of the site?
 superuser: true
@@ -18,15 +18,15 @@ organizations:
     url: 'https://drjiruifu.com'
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research investigates how passive and active ankle prostheses influence gait symmetry in individuals with unilateral transtibial amputation, with a focus on preserving joint health in the intact limb.
+bio: My research is to develop a real-time NMI using Dr. Wen’s CNN algorithm to control an ankle exoskeleton. 
 
 
 interests:
-  - Gait rehabilitation
+  - Development of a real-time NMI using Dr. Wen’s CNN algorithm to control an ankle exoskeleton. 
 
 education:
   courses:
-    - course: B.S. in Biomedical Engineering
+    - course: B.S. in Mechanical Engineering
       institution: Binghamton University
       year: 2024
 
@@ -61,5 +61,3 @@ highlight_name: false
 user_groups:
   - Grad Students
 ---
-
-My research investigates how passive and active ankle prostheses influence gait symmetry in individuals with unilateral transtibial amputation, with a focus on preserving joint health in the intact limb. Using OpenSim virtual musculoskeletal models to simulate human ambulation, the study quantifies joint kinematics, kinetics, and energy exchange efficiency at the hips, knees, and ankles. By identifying joint load disparities between amputee and healthy gait, this work highlights mechanisms that may contribute to long-term degeneration of the intact limb and aims to advance prosthetic designs that enhance mobility while supporting long-term joint preservation. 
