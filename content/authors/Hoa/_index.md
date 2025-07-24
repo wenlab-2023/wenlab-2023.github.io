@@ -18,7 +18,7 @@ organizations:
     url: 'https://drjiruifu.com'
 
 # Short bio (displayed in user profile at end of posts)
-bio: I am interested in the intersection of machine learning, human biomechanics, and intelligent systems. My work focuses on developing learning-based control policies for humanoid and assistive robotics, leveraging physics-based simulation environments as a foundation for sim-to-real transfer. I aim to create adaptable and efficient training methods that bridge the gap between virtual learning and real-world deployment.
+# bio: I am interested in the intersection of machine learning, human biomechanics, and intelligent systems. My work focuses on developing learning-based control policies for humanoid and assistive robotics, leveraging physics-based simulation environments as a foundation for sim-to-real transfer. I aim to create adaptable and efficient training methods that bridge the gap between virtual learning and real-world deployment.
 
 
 interests:
@@ -64,4 +64,4 @@ user_groups:
   - Grad Students
 ---
 
-Dr. Yue Wen is an Assistant Professor in the Department of Aerospace and Mechanical Engineering and a member of the Disability, Aging, and Technology (DAT) Cluster at the University of Central Florida. Prior to that, he was a postdoctoral researcher at Shirley Ryan AbilityLab (formerly RIC) and Northwestern University, Chicago. He received a Ph.D. degree in Biomedical Engineering from the Joint Department of Biomedical Engineering at the University of North Carolina at Chapel Hill and North Carolina State University in 2019. 
+I am interested in the intersection of machine learning, human biomechanics, and intelligent systems. My work focuses on developing learning-based control policies for humanoid and assistive robotics, leveraging physics-based simulation environments as a foundation for sim-to-real transfer. I aim to create adaptable and efficient training methods that bridge the gap between virtual learning and real-world deployment.
