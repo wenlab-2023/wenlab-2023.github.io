@@ -3,14 +3,14 @@
 title: Viet Thai Hoa Nguyen
 
 # Full Name (for SEO)
-first_name: Hoa
+first_name: Viet Thai Hoa
 last_name: Nguyen
 
 # Is this the primary user of the site?
 superuser: true
 
 # Role/position
-role: Ph.D. Student
+role: PhD Student in Mechanical Engineering, Exp. May 2028
 
 # Organizations/Affiliations
 organizations:
@@ -18,27 +18,19 @@ organizations:
     url: 'https://drjiruifu.com'
 
 # Short bio (displayed in user profile at end of posts)
-bio: Jirui Fu is a post-doctoral scholar working at the Wen lab and BRaIN lab in UCF. His research focus on neural machine interface, mobile brain/body imaging, and wearable robotics
+bio: I am interested in the intersection of machine learning, human biomechanics, and intelligent systems. My work focuses on developing learning-based control policies for humanoid and assistive robotics, leveraging physics-based simulation environments as a foundation for sim-to-real transfer. I aim to create adaptable and efficient training methods that bridge the gap between virtual learning and real-world deployment.
 
 
 interests:
   - Reinforcement learning for robotics
   - Human-in-the-loop optimization/personalization of wearable robots
-  - Deep learning
-  - Neural-machine interface
   - Gait rehabilitation
 
 education:
   courses:
-    - course: PhD in Biomedical Engineering
-      institution: The University of North Carolina at Chapel Hill and North Carolina State University
-      year: 2019
-    - course: M.S. in Control Theory and Engineering
-      institution: Huazhong University of Science and Technology, Wuhan, Hubei Province, China PRC
-      year: 2014
-    - course: B.S. in School of Automation
-      institution: Wuhan University of Technology, Wuhan, Hubei Province, China PRC
-      year: 2011
+    - course: B.S. in Mechanical Engineering
+      institution: University of Central Florida, Orlando, Florida
+      year: 2023
 
 # Social/Academic Networking
 # For available icons, see: https://docs.hugoblox.com/getting-started/page-builder/#icons

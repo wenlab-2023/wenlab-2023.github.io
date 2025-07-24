@@ -10,7 +10,7 @@ last_name: Eshtehardi
 superuser: true
 
 # Role/position
-role: PhD Student of Biomedical Engineering, Exp. May 2028 
+role: PhD Student in Biomedical Engineering, Exp. May 2028 
 
 # Organizations/Affiliations
 organizations:
