@@ -4,7 +4,7 @@ role: "Graduate Student Researcher"
 email: "hoa@ucf.edu"
 avatar: "assets/media/avatars/hoa.jpg"
 group: "Graduate Student Researcher"
-order: 3
+order: 2
 scholar: ""
 github: ""
 linkedin: ""

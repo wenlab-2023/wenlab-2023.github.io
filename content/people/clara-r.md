@@ -4,7 +4,7 @@ role: "Graduate Student Researcher"
 email: "clara@ucf.edu"
 avatar: "assets/media/avatars/clara-r.jpg"
 group: "Graduate Student Researcher"
-order: 2
+order: 1
 scholar: ""
 github: ""
 linkedin: ""

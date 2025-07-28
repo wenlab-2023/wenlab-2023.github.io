@@ -49,9 +49,9 @@ class ContentLoader {
             const peopleFiles = [
                 'content/people/yue-wen.md',
                 'content/people/jirui-fu.md',
+                'content/people/hoa.md',
                 'content/people/ali.md',
                 'content/people/clara-r.md',
-                'content/people/hoa.md',
                 'content/people/jasmine-cheong.md',
                 'content/people/delta-zable.md',
                 'content/people/alumni-qingyuan.md',
