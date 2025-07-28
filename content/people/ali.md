@@ -2,7 +2,7 @@
 name: "Ali Al-Ramadan"
 role: "Graduate Student"
 email: "ali@ucf.edu"
-avatar: "content/authors/ALI/avatar.jpg"
+avatar: "assets/media/avatars/ali.jpg"
 group: "Graduate Student"
 order: 1
 scholar: ""

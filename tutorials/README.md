@@ -8,34 +8,30 @@ Welcome to the WEN Lab website tutorials! This folder contains comprehensive gui
 - [Homepage Editing Guide](homepage-editing.md) - How to modify the homepage content and slideshow
 
 ### 👥 **People Page Management**
-- [People Page Guide](people-management.md) - How to add, edit, and organize team members
 - [Adding New Team Members](adding-team-members.md) - Step-by-step guide to add new people
 
 ### 📰 **News Management**
-- [News Page Guide](news-management.md) - How to add and manage news articles
 - [Creating News Articles](creating-news.md) - Template and examples for news content
 
 ### 📅 **Events Management**
-- [Events Page Guide](events-management.md) - How to add and manage events
-- [Creating Events](creating-events.md) - Template and examples for event content
+- Events are managed through `content/events/` folder with individual `.md` files
 
 ### 🔬 **Projects Management**
-- [Projects Page Guide](projects-management.md) - How to add and manage research projects
 - [Creating Projects](creating-projects.md) - Template and examples for project content
 
 ### 📚 **Publications Management**
-- [Publications Page Guide](publications-management.md) - How to manage publications using BibTeX
 - [Adding Publications](adding-publications.md) - How to add new publications to the BibTeX file
 
 ### ℹ️ **About Us Page**
-- [About Us Editing](about-us-editing.md) - How to modify the About Us page content
+- Edit `content/about.md` directly
 
 ### 📞 **Contact Page**
-- [Contact Page Editing](contact-editing.md) - How to update contact information
+- Edit `content/contact-intro.md` for contact page content
+- Contact information is hardcoded in `contact.html`
 
 ### 🎨 **Styling and Design**
-- [CSS Customization](css-customization.md) - How to modify colors, fonts, and layout
-- [Image Management](image-management.md) - How to add and optimize images
+- Edit `styles.css` for visual customization
+- Images are organized in `assets/media/` folders
 
 ### 🛠️ **Technical Maintenance**
 - [Website Setup](website-setup.md) - How to set up the development environment
@@ -44,7 +40,7 @@ Welcome to the WEN Lab website tutorials! This folder contains comprehensive gui
 ## 🚀 Quick Start
 
 1. **For adding new content**: Start with the specific content type guide (e.g., [Adding Team Members](adding-team-members.md))
-2. **For editing existing content**: Use the management guides (e.g., [People Management](people-management.md))
+2. **For editing existing content**: Edit the corresponding `.md` files directly
 3. **For technical issues**: Check [Troubleshooting](troubleshooting.md)
 
 ## 📁 File Structure Overview
@@ -53,22 +49,35 @@ Welcome to the WEN Lab website tutorials! This folder contains comprehensive gui
 tutorials/
 ├── README.md                    # This file
 ├── homepage-editing.md          # Homepage content editing
-├── people-management.md         # People page management
 ├── adding-team-members.md       # Adding new team members
-├── news-management.md           # News page management
 ├── creating-news.md             # Creating news articles
-├── events-management.md         # Events page management
-├── creating-events.md           # Creating events
-├── projects-management.md       # Projects page management
 ├── creating-projects.md         # Creating projects
-├── publications-management.md   # Publications management
 ├── adding-publications.md       # Adding publications
-├── about-us-editing.md          # About Us page editing
-├── contact-editing.md           # Contact page editing
-├── css-customization.md         # Styling and design
-├── image-management.md          # Image handling
 ├── website-setup.md             # Development setup
 └── troubleshooting.md           # Common issues
+```
+
+## 🗂️ Website File Structure (Updated July 2024)
+
+The website has been cleaned up to remove unused legacy files. Current structure:
+
+```
+content/
+├── home.md                    # Homepage content
+├── about.md                   # About page content
+├── contact-intro.md           # Contact page intro
+├── people/                    # Team member files
+├── news/                      # News articles
+├── projects/                  # Research projects
+├── events/                    # Events
+├── publications.bib           # Publications database
+└── people.md                  # People page index
+
+assets/
+├── media/                     # Main images
+├── media/avatars/             # Team profile pictures
+├── media/posts/               # News article images
+└── js/                        # JavaScript files
 ```
 
 ## 💡 Tips for Success
@@ -78,6 +87,7 @@ tutorials/
 - **Use consistent formatting** in Markdown files
 - **Optimize images** before uploading (recommended: max 1MB per image)
 - **Follow naming conventions** for files (lowercase, hyphens for spaces)
+- **Use correct image folders**: `assets/media/avatars/` for team photos, `assets/media/posts/` for news images
 
 ## 🔧 Need Help?
 
@@ -88,4 +98,4 @@ If you encounter issues not covered in these tutorials:
 
 ---
 
-*Last updated: July 2024* 
+*Last updated: July 2024 - Updated to reflect cleaned file structure* 

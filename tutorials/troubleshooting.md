@@ -19,7 +19,10 @@ This guide provides solutions to common issues you may encounter while managing 
 **Symptoms**: Image placeholders or broken image icons
 **Solutions**:
 1. **Check file path**: Verify image path in Markdown front matter
-2. **File exists**: Ensure image file exists in `assets/media/`
+2. **File exists**: Ensure image file exists in the correct folder:
+   - Team avatars: `assets/media/avatars/`
+   - News images: `assets/media/posts/`
+   - General images: `assets/media/`
 3. **File permissions**: Check file permissions (should be readable)
 4. **File format**: Use JPG, PNG, or GIF formats
 5. **File size**: Keep images under 1MB for faster loading
@@ -289,6 +292,50 @@ console.warn('Warning:', warning);
 - **Website Issues**: Check this troubleshooting guide first
 - **Content Issues**: Review content creation guides
 - **Technical Support**: Contact website administrator
+
+## 🗂️ File Structure Changes (Updated July 2024)
+
+### Recent Cleanup:
+The website file structure has been cleaned up to remove unused legacy files:
+
+#### **Removed Folders:**
+- `content/research/` - Unused Hugo research folder
+- `content/publication/` - Unused Hugo publication folder  
+- `content/post/` - Unused Hugo post folder (images moved to `assets/media/posts/`)
+- `content/authors/` - Unused Hugo authors folder (images moved to `assets/media/avatars/`)
+- `content/admin/` - Unused Decap CMS folder
+- `content/event/` - Unused Hugo event folder
+- `content/_index.md` - Unused Hugo homepage file
+
+#### **New Image Organization:**
+- **Team Avatars**: `assets/media/avatars/` (moved from `content/authors/`)
+- **News Images**: `assets/media/posts/` (moved from `content/post/`)
+- **General Images**: `assets/media/` (main image folder)
+
+#### **Current Active Structure:**
+```
+content/
+├── home.md                    # Homepage content
+├── about.md                   # About page content
+├── contact-intro.md           # Contact page intro
+├── people/                    # Team member files
+├── news/                      # News articles
+├── projects/                  # Research projects
+├── events/                    # Events
+├── publications.bib           # Publications database
+└── people.md                  # People page index
+
+assets/
+├── media/                     # Main images
+├── media/avatars/             # Team profile pictures
+├── media/posts/               # News article images
+└── js/                        # JavaScript files
+```
+
+### If You Encounter Legacy References:
+If you see references to old file paths, update them to the new structure:
+- `content/authors/name/avatar.jpg` → `assets/media/avatars/name.jpg`
+- `content/post/event/featured.jpg` → `assets/media/posts/event.jpg`
 
 ## ✅ Prevention Tips
 

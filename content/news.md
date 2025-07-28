@@ -5,7 +5,7 @@ Stay updated with the latest developments, achievements, and events from the WEN
 ## WEN Lab's First Presentation on RehabWeek
 **Date:** December 1, 2020  
 **Category:** Award  
-**Image:** content/post/Rehabweek/featured.jpg  
+**Image:** assets/media/posts/rehabweek-2020.jpg  
 
 Congratulations to Richard Hendricks for winning first place in the Wowchemy Prize at RehabWeek 2020. This achievement highlights our lab's commitment to excellence in rehabilitation engineering research.
 
@@ -20,7 +20,7 @@ Mauris dapibus sem vel magna convallis laoreet. Donec in venenatis urna, vitae s
 ## WEN Lab's First Lab Party
 **Date:** December 2, 2020  
 **Category:** Event  
-**Image:** content/post/First Lab Party/featured.jpg  
+**Image:** assets/media/posts/lab-party-2020.jpg  
 
 Celebrating our lab's achievements and building team camaraderie at our first lab party. A great opportunity for team members to connect outside of research activities.
 

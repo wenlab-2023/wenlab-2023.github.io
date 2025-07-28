@@ -2,7 +2,7 @@
 name: "Yue Wen, Ph.D."
 role: "Assistant Professor"
 email: "yue.wen@ucf.edu"
-avatar: "content/authors/admin/avatar.jpg"
+avatar: "assets/media/avatars/yue-wen.jpg"
 group: "Principal Investigator"
 order: 1
 scholar: "https://scholar.google.com/citations?user=skm_uIIAAAAJ&hl=en"

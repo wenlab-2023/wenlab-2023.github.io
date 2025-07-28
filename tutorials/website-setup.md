@@ -110,7 +110,9 @@ http-server -p 8000
 - **`content/publications.bib`**: Publications in BibTeX format
 
 #### Assets
-- **`assets/media/`**: Images and media files
+- **`assets/media/`**: Main images and media files
+- **`assets/media/avatars/`**: Team member profile pictures
+- **`assets/media/posts/`**: News article images
 - **`tutorials/`**: This documentation
 
 ## 🛠️ Development Workflow

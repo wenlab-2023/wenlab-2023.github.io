@@ -2,7 +2,7 @@
 name: "Hoa Nguyen"
 role: "Graduate Student"
 email: "hoa@ucf.edu"
-avatar: "content/authors/Hoa/avatar.jpg"
+avatar: "assets/media/avatars/hoa.jpg"
 group: "Graduate Student"
 order: 3
 scholar: ""

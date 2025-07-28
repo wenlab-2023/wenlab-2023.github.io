@@ -2,7 +2,7 @@
 name: "Jirui Fu, Ph.D."
 role: "Post-doctoral Scholar"
 email: "jirui.fu@ucf.edu"
-avatar: "content/authors/jirui_fu/avatar.jpg"
+avatar: "assets/media/avatars/jirui-fu.jpg"
 group: "Post-doc"
 order: 1
 scholar: "https://scholar.google.com/citations?user=NUqwYgIAAAAJ&hl=en"

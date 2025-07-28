@@ -15,7 +15,7 @@ This guide will help you create and manage news articles for the WEN Lab website
 1. **Resize the image** to 800x600 pixels (4:3 aspect ratio works well)
 2. **Optimize the file size** (keep under 1MB for faster loading)
 3. **Save the image** with a descriptive filename (e.g., `award-ceremony-2024.jpg`)
-4. **Upload to the correct folder**: `assets/media/`
+4. **Upload to the correct folder**: `assets/media/posts/`
 
 ### Step 2: Create the Markdown File
 
@@ -30,7 +30,7 @@ This guide will help you create and manage news articles for the WEN Lab website
 title: "WEN Lab Receives Prestigious NSF CAREER Award"
 date: "2024-03-15"
 category: "Award"
-image: "assets/media/nsf-career-award-2024.jpg"
+image: "assets/media/posts/nsf-career-award-2024.jpg"
 featured: true
 order: 1
 ---

@@ -2,7 +2,7 @@
 name: "Clara Rodriguez"
 role: "Graduate Student"
 email: "clara@ucf.edu"
-avatar: "content/authors/CLARA_R/avatar.jpg"
+avatar: "assets/media/avatars/clara-r.jpg"
 group: "Graduate Student"
 order: 2
 scholar: ""

@@ -2,7 +2,7 @@
 name: "John Smith"
 role: "Undergraduate Student"
 email: "john.smith@ucf.edu"
-avatar: "content/authors/admin/avatar.jpg"
+avatar: "assets/media/avatars/yue-wen.jpg"
 group: "Undergraduate Student"
 order: 1
 github: ""

@@ -15,7 +15,7 @@ This guide will walk you through the process of adding new team members to the W
 1. **Resize the image** to 400x400 pixels (square format works best)
 2. **Optimize the file size** (keep under 500KB for faster loading)
 3. **Save the image** with a descriptive filename (e.g., `john-doe.jpg`)
-4. **Upload to the correct folder**: `assets/media/`
+4. **Upload to the correct folder**: `assets/media/avatars/`
 
 ### Step 2: Create the Markdown File
 
@@ -30,7 +30,7 @@ This guide will walk you through the process of adding new team members to the W
 name: "Dr. John Doe"
 role: "Post-doc"
 category: "post-doc"
-avatar: "assets/media/john-doe.jpg"
+avatar: "assets/media/avatars/john-doe.jpg"
 order: 3
 ---
 
