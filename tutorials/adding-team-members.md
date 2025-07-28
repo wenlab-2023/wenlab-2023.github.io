@@ -71,12 +71,12 @@ Dr. John Doe is a postdoctoral researcher specializing in wearable robotics and 
 #### Required Fields:
 
 - **`name`**: Full name as it should appear on the website
-- **`role`**: Current position (e.g., "Principal Investigator", "Post-doc", "Graduate Student", "Undergraduate Student")
+- **`role`**: Current position (e.g., "Principal Investigator", "Post-doc", "Graduate Student Researcher", "Undergraduate Student Researcher")
 - **`category`**: Must match one of these exact values:
   - `"pi"` - Principal Investigator
   - `"post-doc"` - Post-doc
-  - `"graduate"` - Graduate Student
-  - `"undergraduate"` - Undergraduate Student
+  - `"graduate"` - Graduate Student Researcher
+- `"undergraduate"` - Undergraduate Student Researcher
   - `"alumni"` - Alumni
 - **`avatar`**: Path to the image file (relative to root)
 - **`order`**: Display order (lower numbers appear first within each category)
@@ -167,11 +167,11 @@ To update an existing team member:
 
 ## 📝 Example Files
 
-### Graduate Student Example:
+### Graduate Student Researcher Example:
 ```markdown
 ---
 name: "Jane Smith"
-role: "Graduate Student"
+role: "Graduate Student Researcher"
 category: "graduate"
 avatar: "assets/media/jane-smith.jpg"
 order: 2

@@ -52,7 +52,7 @@ class ContentLoader {
                 'content/people/ali.md',
                 'content/people/clara-r.md',
                 'content/people/hoa.md',
-                'content/people/undergrad-student.md',
+                'content/people/jasmine-cheong.md',
                 'content/people/alumni-qingyuan.md',
                 'content/people/alumni-jane-doe.md',
                 'content/people/alumni-mike-wilson.md'

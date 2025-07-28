@@ -30,10 +30,10 @@ content/
 ```markdown
 ---
 name: "Jane Doe, Ph.D."
-role: "Graduate Student"
+role: "Graduate Student Researcher"
 email: "jane.doe@ucf.edu"
 avatar: "content/authors/jane_doe/avatar.jpg"
-group: "Graduate Students"
+group: "Graduate Student Researchers"
 order: 2
 ---
 
@@ -170,7 +170,7 @@ Financial backing and support.
 - `role`: Position/role in the lab
 - `email`: Email address
 - `avatar`: Path to avatar image
-- `group`: Group category (Principal Investigators, Postdoctoral Researchers, Graduate Students, etc.)
+- `group`: Group category (Principal Investigators, Postdoctoral Researchers, Graduate Student Researchers, etc.)
 - `order`: Sorting order within the group
 
 ### News Files

@@ -1,9 +1,9 @@
 ---
 name: "Clara Rodriguez"
-role: "Graduate Student"
+role: "Graduate Student Researcher"
 email: "clara@ucf.edu"
 avatar: "assets/media/avatars/clara-r.jpg"
-group: "Graduate Student"
+group: "Graduate Student Researcher"
 order: 2
 scholar: ""
 github: ""

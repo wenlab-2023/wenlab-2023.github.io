@@ -1,13 +1,13 @@
 ---
-name: "Hoa Nguyen"
-role: "Graduate Student"
+name: "Viet Thai Hoa Nguyen"
+role: "Graduate Student Researcher"
 email: "hoa@ucf.edu"
 avatar: "assets/media/avatars/hoa.jpg"
-group: "Graduate Student"
+group: "Graduate Student Researcher"
 order: 3
 scholar: ""
 github: ""
 linkedin: ""
 ---
 
-Hoa Nguyen is a graduate student working on adaptive control systems and machine learning applications. Her research focuses on developing intelligent algorithms for human-robot interaction and rehabilitation systems. 
+Viet Thai Hoa Nguyen is a graduate student working on adaptive control systems and machine learning applications. Her research focuses on developing intelligent algorithms for human-robot interaction and rehabilitation systems. 

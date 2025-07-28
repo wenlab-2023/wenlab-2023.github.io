@@ -129,9 +129,9 @@ This project focuses on developing advanced neural-machine interfaces (NMIs) for
 ### Core Team
 
 - **Dr. Jirui Fu** (PI): Neural interface design and control algorithms
-- **Ali Al-Ramadan** (Graduate Student): Signal processing and machine learning
+- **Ali Eshtehardi** (Graduate Student Researcher): Signal processing and machine learning
 - **Dr. Yue Wen** (Post-doc): Clinical validation and user studies
-- **Clara Rodriguez** (Undergraduate): Hardware development and testing
+- **Clara Rodriguez** (Undergraduate Student Researcher): Hardware development and testing
 
 ### Collaborators
 

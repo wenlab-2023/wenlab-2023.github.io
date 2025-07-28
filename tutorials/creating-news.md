@@ -74,7 +74,7 @@ The grant also includes significant educational initiatives:
 
 The project will involve:
 
-- **WEN Lab Researchers**: Graduate and undergraduate students
+- **WEN Lab Researchers**: Graduate and undergraduate student researchers
 - **Clinical Partners**: Local rehabilitation centers and hospitals
 - **Industry Partners**: Wearable robotics companies
 - **Academic Collaborators**: Leading researchers in the field
