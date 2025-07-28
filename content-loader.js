@@ -53,6 +53,7 @@ class ContentLoader {
                 'content/people/clara-r.md',
                 'content/people/hoa.md',
                 'content/people/jasmine-cheong.md',
+                'content/people/delta-zable.md',
                 'content/people/alumni-qingyuan.md',
                 'content/people/alumni-jane-doe.md',
                 'content/people/alumni-mike-wilson.md'
