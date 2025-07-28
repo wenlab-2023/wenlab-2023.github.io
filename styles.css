@@ -924,7 +924,7 @@ body {
     padding: 0.75rem 1.5rem;
     border: 2px solid #FFC904;
     background: transparent;
-    color: #FFC904;
+    color: #000;
     border-radius: 25px;
     cursor: pointer;
     font-weight: 500;
@@ -1026,27 +1026,27 @@ body {
 
 .publication-type-badge.journal {
     background: #e3f2fd;
-    color: #1976d2;
+    color: #000;
 }
 
 .publication-type-badge.conference {
     background: #f3e5f5;
-    color: #7b1fa2;
+    color: #000;
 }
 
 .publication-type-badge.preprint {
     background: #fff3e0;
-    color: #f57c00;
+    color: #000;
 }
 
 .publication-type-badge.book {
     background: #e8f5e8;
-    color: #388e3c;
+    color: #000;
 }
 
 .publication-type-badge.patent {
     background: #fce4ec;
-    color: #c2185b;
+    color: #000;
 }
 
 .contact-intro {
