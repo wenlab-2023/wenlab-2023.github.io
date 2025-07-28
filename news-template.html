@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Detail - WEN Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">WEN Lab</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="people.html" class="nav-link">People</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+                                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="events.html" class="nav-link">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- News Hero Section -->
+    <section class="news-hero">
+        <div class="container">
+            <div class="news-hero-content">
+                <div class="news-meta">
+                    <span class="news-date" id="news-date"></span>
+                    <span class="news-category" id="news-category"></span>
+                </div>
+                <h1 id="news-title"></h1>
+                <div class="news-image" id="news-image">
+                    <!-- Image will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Content -->
+    <section class="news-content">
+        <div class="container">
+            <div class="news-details" id="news-details">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WEN Lab</h3>
+                    <p>Wearable Engineering and Neural Interface Laboratory<br>University of Central Florida</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: jiruifu@gmail.com<br>Address: 12201 Research Pkwy, Orlando, FL 32816</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/wenlab-2023" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:jiruifu@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WEN Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="markdown-parser.js"></script>
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Load news content based on ID parameter
+        async function loadNewsContent() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const newsId = urlParams.get('id');
+            
+            if (!newsId) {
+                document.getElementById('news-details').innerHTML = '<p>News article not found.</p>';
+                return;
+            }
+
+            try {
+                const response = await fetch(`content/news/${newsId}.md`);
+                if (!response.ok) {
+                    throw new Error('News article not found');
+                }
+                
+                const content = await response.text();
+                const parsed = window.contentLoader.parseFrontMatter(content);
+                
+                // Update page title
+                document.title = `${parsed.frontMatter.title} - WEN Lab`;
+                
+                // Update hero section
+                document.getElementById('news-title').textContent = parsed.frontMatter.title;
+                document.getElementById('news-date').innerHTML = `<i class="fas fa-calendar"></i> ${parsed.frontMatter.date}`;
+                document.getElementById('news-category').innerHTML = `<i class="fas fa-${getCategoryIcon(parsed.frontMatter.category)}"></i> ${parsed.frontMatter.category}`;
+                
+                                                        // Update content first
+                document.getElementById('news-details').innerHTML = window.markdownParser.parse(parsed.content);
+                
+                // Update image if available
+                if (parsed.frontMatter.image) {
+                    document.getElementById('news-image').innerHTML = `<img src="${parsed.frontMatter.image}" alt="${parsed.frontMatter.title}">`;
+                } else {
+                    document.getElementById('news-image').style.display = 'none';
+                }
+                
+            } catch (error) {
+                console.error('Error loading news content:', error);
+                document.getElementById('news-details').innerHTML = '<p>Error loading news article.</p>';
+            }
+        }
+
+        function getCategoryIcon(category) {
+            const icons = {
+                'Award': 'trophy',
+                'Event': 'users',
+                'Research': 'flask',
+                'Conference': 'presentation'
+            };
+            return icons[category] || 'newspaper';
+        }
+
+        // Load content when page is ready
+        document.addEventListener('DOMContentLoaded', loadNewsContent);
+    </script>
+
+
+</body>
+</html> 

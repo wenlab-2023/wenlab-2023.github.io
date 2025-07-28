@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People - WEN Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">WEN Lab</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="people.html" class="nav-link">People</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+                                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="events.html" class="nav-link">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Team Sections -->
+    <div id="team-sections">
+        <!-- Content will be loaded from individual Markdown files -->
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WEN Lab</h3>
+                    <p>Wearable Engineering and Neural Interface Laboratory<br>University of Central Florida</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: jiruifu@gmail.com<br>Address: 12201 Research Pkwy, Orlando, FL 32816</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/wenlab-2023" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:jiruifu@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WEN Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="markdown-parser.js"></script>
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Load and display people content
+        async function loadPeopleContent() {
+            try {
+                await window.contentLoader.loadPeople();
+                
+                // Group people by their group
+                const groups = {};
+                window.contentLoader.people.forEach(person => {
+                    if (!groups[person.group]) {
+                        groups[person.group] = [];
+                    }
+                    groups[person.group].push(person);
+                });
+                
+                // Render each group
+                const teamSections = document.getElementById('team-sections');
+                Object.keys(groups).forEach(groupName => {
+                    const people = groups[groupName];
+                    const sectionHTML = `
+                        <section class="team-section">
+                            <div class="container">
+                                <h2>${groupName}</h2>
+                                <div class="team-grid">
+                                    ${window.contentLoader.renderPeopleHTML(people, groupName)}
+                                </div>
+                            </div>
+                        </section>
+                    `;
+                    teamSections.innerHTML += sectionHTML;
+                });
+            } catch (error) {
+                console.error('Error loading people content:', error);
+            }
+        }
+        
+        // Load content when page loads
+        document.addEventListener('DOMContentLoaded', loadPeopleContent);
+    </script>
+</body>
+</html> 

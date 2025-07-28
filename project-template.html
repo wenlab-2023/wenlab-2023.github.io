@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Title - WEN Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">WEN Lab</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="people.html" class="nav-link">People</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link active">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+                                        <li class="nav-item">
+                            <a href="news.html" class="nav-link">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="events.html" class="nav-link">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link">Contact</a>
+                        </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Header -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="project-hero-text">
+                    <h1 id="project-title">Project Title</h1>
+                    <div class="project-meta">
+                        <div class="project-pi"><strong>Principal Investigator:</strong> <span id="project-pi">Dr. Yue Wen</span></div>
+                        <div class="project-team"><strong>Team Members:</strong> <span id="project-team">Team Members</span></div>
+                        <div class="project-status"><strong>Status:</strong> <span id="project-status">Active</span></div>
+                        <div class="project-funding"><strong>Funding:</strong> <span id="project-funding">NSF</span></div>
+                    </div>
+                </div>
+                <div class="project-image" id="project-image">
+                    <!-- Image will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <section class="project-content">
+        <div class="container">
+            <div class="project-details" id="project-content">
+                <!-- Content will be loaded from Markdown -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WEN Lab</h3>
+                    <p>Wearable Engineering and Neural Interface Laboratory<br>University of Central Florida</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: jiruifu@gmail.com<br>Address: 12201 Research Pkwy, Orlando, FL 32816</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/wenlab-2023" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:jiruifu@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WEN Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="markdown-parser.js"></script>
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Get project ID from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+        
+        // Load and display project content
+        async function loadProjectContent() {
+            if (!projectId) {
+                console.error('No project ID provided');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`content/projects/${projectId}.md`);
+                const markdown = await response.text();
+                
+                // Parse front matter and content
+                const { frontMatter, content } = window.contentLoader.parseFrontMatter(markdown);
+                
+                // Update page title and meta information
+                document.title = `${frontMatter.title} - WEN Lab`;
+                document.getElementById('project-title').textContent = frontMatter.title;
+                document.getElementById('project-pi').textContent = frontMatter.principal_investigator;
+                document.getElementById('project-team').textContent = frontMatter.team_members;
+                document.getElementById('project-status').textContent = frontMatter.status;
+                document.getElementById('project-funding').textContent = frontMatter.funding;
+                
+                // Parse and display content first
+                const htmlContent = window.markdownParser.parse(content);
+                document.getElementById('project-content').innerHTML = htmlContent;
+                
+                // Update image if available
+                if (frontMatter.image) {
+                    document.getElementById('project-image').innerHTML = `<img src="${frontMatter.image}" alt="${frontMatter.title}">`;
+                } else {
+                    document.getElementById('project-image').style.display = 'none';
+                }
+                
+            } catch (error) {
+                console.error('Error loading project content:', error);
+                document.getElementById('project-content').innerHTML = '<p>Error loading project content.</p>';
+            }
+        }
+        
+        // Load content when page is ready
+        document.addEventListener('DOMContentLoaded', loadProjectContent);
+    </script>
+
+
+</body>
+</html> 
