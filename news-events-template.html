@@ -145,7 +145,7 @@
         </div>
     </footer>
 
-    <script src="markdown-parser.js"></script>
+    <script src="markdown-parser.js?v=1"></script>
     <script src="content-loader.js"></script>
     <script src="script.js"></script>
     <script>
@@ -204,10 +204,13 @@
                 document.getElementById('news-details').innerHTML = window.markdownParser.parse(parsed.content);
                 
                 // Update image if available
-                if (parsed.frontMatter.image) {
+                console.log('News image:', parsed.frontMatter.image);
+                if (parsed.frontMatter.image && parsed.frontMatter.image.trim() !== '') {
                     document.getElementById('news-image').innerHTML = `<img src="${parsed.frontMatter.image}" alt="${parsed.frontMatter.title}">`;
+                    console.log('Image displayed');
                 } else {
                     document.getElementById('news-image').style.display = 'none';
+                    console.log('Image hidden');
                 }
                 
             } catch (error) {
@@ -241,10 +244,13 @@
                 document.getElementById('news-details').innerHTML = window.markdownParser.parse(parsed.content);
                 
                 // Update image if available
-                if (parsed.frontMatter.image) {
+                console.log('Event image:', parsed.frontMatter.image);
+                if (parsed.frontMatter.image && parsed.frontMatter.image.trim() !== '') {
                     document.getElementById('news-image').innerHTML = `<img src="${parsed.frontMatter.image}" alt="${parsed.frontMatter.title}">`;
+                    console.log('Image displayed');
                 } else {
                     document.getElementById('news-image').style.display = 'none';
+                    console.log('Image hidden');
                 }
                 
             } catch (error) {

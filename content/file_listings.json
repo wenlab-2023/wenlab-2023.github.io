@@ -1,18 +1,9 @@
 {
   "news": [
-    "content/news/test1.md",
-    "content/news/test2.md",
-    "content/news/test3.md",
-    "content/news/test4.md",
-    "content/news/test5.md",
-    "content/news/test6.md"
+    "content/news/rehab_week_25.md"
   ],
   "events": [
-    "content/events/ieee-robotics-conference-2024.md",
-    "content/events/iros-workshop-2024.md",
-    "content/events/lab-open-house-2024.md",
-    "content/events/rehabweek-2024.md",
-    "content/events/test-event.md"
+    "content/events/stem_day.md"
   ],
   "projects": [
     "content/projects/adaptive-control-rehabilitation.md",

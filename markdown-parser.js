@@ -11,6 +11,9 @@ class MarkdownParser {
             { pattern: /\*\*(.*?)\*\*/g, replacement: '<strong>$1</strong>' },
             { pattern: /\*(.*?)\*/g, replacement: '<em>$1</em>' },
             
+            // Images (must come before links to avoid conflicts)
+            { pattern: /!\[([^\]]*)\]\(([^)]+)\)/g, replacement: '<img src="$2" alt="$1" style="max-width: 100%; height: auto; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">' },
+            
             // Links
             { pattern: /\[([^\]]+)\]\(([^)]+)\)/g, replacement: '<a href="$2" target="_blank">$1</a>' },
             

@@ -454,13 +454,13 @@ class ContentLoader {
     async loadEvents() {
         try {
             // Load the dynamic file listing
-            const fileListingsResponse = await fetch('content/file_listings.json');
+            const fileListingsResponse = await fetch('content/file_listings.json?v=' + Date.now());
             const fileListings = await fileListingsResponse.json();
             const eventFiles = fileListings.events || [];
             
             const eventPromises = eventFiles.map(async (file) => {
                 try {
-                    const response = await fetch(file);
+                    const response = await fetch(file + '?v=' + Date.now());
                     const content = await response.text();
                     const { frontMatter, content: markdownContent } = this.parseFrontMatter(content);
                     
@@ -477,7 +477,9 @@ class ContentLoader {
             });
             
             const events = await Promise.all(eventPromises);
+            console.log('Loaded events:', events);
             this.events = events.filter(e => e !== null).sort((a, b) => a.order - b.order);
+            console.log('Filtered events:', this.events);
             
             return this.events;
         } catch (error) {
