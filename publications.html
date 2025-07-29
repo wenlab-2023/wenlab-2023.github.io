@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications - WEN Lab</title>
     <link rel="icon" type="image/png" href="assets/media/icon.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=1753814932">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -121,9 +121,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Recent News</h3>
+                    <h3>Latest News & Events</h3>
                     <div id="recent-news-footer">
-                        <!-- Recent news will be loaded here -->
+                        <!-- Recent news and events will be loaded here -->
                     </div>
                 </div>
                 <div class="footer-section">
@@ -133,9 +133,12 @@
                         <a href="mailto:jiruifu@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <div class="footer-section footer-logo">
+                                <div class="footer-section footer-logo">
                     <a href="https://mae.ucf.edu" target="_blank">
                         <img src="assets/media/logo-foot.png" alt="WEN Lab Logo" class="footer-logo-img">
+                    </a>
+                    <a href="https://www.ucf.edu/research/disability-aging-technology/" target="_blank">
+                        <img src="assets/media/logo_dat.jpg" alt="DAT Research Cluster Logo" class="footer-logo-img">
                     </a>
                 </div>
             </div>
@@ -178,27 +181,71 @@
             }
         }
         
-        // Load recent news for footer
+        // Helper functions for icons
+        function getCategoryIcon(category) {
+            const icons = {
+                'Award': 'trophy',
+                'Event': 'users',
+                'Research': 'flask',
+                'Conference': 'presentation'
+            };
+            return icons[category] || 'newspaper';
+        }
+
+        function getEventTypeIcon(type) {
+            const icons = {
+                'Conference': 'presentation',
+                'Workshop': 'chalkboard-teacher',
+                'Open House': 'home',
+                'Seminar': 'graduation-cap',
+                'Symposium': 'users'
+            };
+            return icons[type] || 'calendar';
+        }
+
+        // Load recent news and events for footer
         async function loadRecentNews() {
             try {
+                // Load both news and events
                 await window.contentLoader.loadNews();
-                const recentNews = window.contentLoader.news.slice(0, 3); // Get latest 3 news
+                await window.contentLoader.loadEvents();
                 
-                const recentNewsHTML = recentNews.map(item => {
-                    const newsId = item.filename ? item.filename.replace('.md', '') : item.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+                const recentNews = window.contentLoader.news.slice(0, 3); // Get latest 3 news
+                const recentEvents = window.contentLoader.events.slice(0, 3); // Get latest 3 events
+                
+                // Combine news and events
+                const allItems = [...recentNews, ...recentEvents];
+                
+                // Sort by date (most recent first)
+                allItems.sort((a, b) => {
+                    const dateA = new Date(a.date);
+                    const dateB = new Date(b.date);
+                    return dateB - dateA;
+                });
+                
+                // Take the latest 3 items
+                const latestItems = allItems.slice(0, 3);
+                
+                const recentItemsHTML = latestItems.map(item => {
+                    const itemId = item.filename ? item.filename.replace('.md', '') : item.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+                    const itemType = item.category ? 'News' : 'Event';
+                    const itemIcon = item.category ? getCategoryIcon(item.category) : getEventTypeIcon(item.type);
+                    
                     return `
                         <div class="recent-news-item">
-                            <a href="news-events-template.html?id=${newsId}">
+                            <a href="news-events-template.html?id=${itemId}">
                                 <span class="recent-news-title">${item.title}</span>
-                                <span class="recent-news-date">${item.date}</span>
+                                <span class="recent-news-date">
+                                    <i class="fas fa-${itemIcon}"></i> ${itemType} • ${item.date}
+                                </span>
                             </a>
                         </div>
                     `;
                 }).join('');
                 
-                document.getElementById('recent-news-footer').innerHTML = recentNewsHTML;
+                document.getElementById('recent-news-footer').innerHTML = recentItemsHTML;
             } catch (error) {
-                console.error('Error loading recent news:', error);
+                console.error('Error loading recent news and events:', error);
             }
         }
         

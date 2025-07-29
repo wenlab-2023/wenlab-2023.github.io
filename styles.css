@@ -1551,6 +1551,12 @@ body {
     max-height: 60px;
     width: auto;
     opacity: 0.8;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-logo-img:last-child {
+    margin-bottom: 0;
 }
 
 .recent-news-item {

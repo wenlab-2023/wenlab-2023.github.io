@@ -1,6 +1,6 @@
 ---
 title: "WEN Lab's First Presentation on RehabWeek"
-date: "2020-12-01"
+date: "2025-05-16"
 category: "Award"
 image: ""
 featured: true
