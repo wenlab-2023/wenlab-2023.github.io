@@ -10,4 +10,4 @@ github: ""
 linkedin: ""
 ---
 
-Clara Rodriguez is a graduate student working on rehabilitation engineering and assistive technology. Her research focuses on developing adaptive control systems for wearable robotic devices. 
+My research explores how passive and active ankle prostheses mitigate gait asymmetry in individuals with unilateral transtibial amputation, with an emphasis on preserving joint health in the intact limb. Using OpenSim musculoskeletal models, I quantify joint kinematics, kinetics, and energy exchange at the hips, knees, and ankles to identify load disparities that contribute to long-term degeneration. This work informs prosthetic design that enhances mobility while honoring each limb's mechanical capabilities.

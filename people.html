@@ -147,21 +147,34 @@
                     groups[person.group].push(person);
                 });
                 
-                // Render each group
+                // Define the order of groups
+                const groupOrder = [
+                    'Principal Investigator',
+                    'faculty',
+                    'Post-doc',
+                    'Graduate Student Researcher',
+                    'Undergraduate Student',
+                    'Undergraduate Student Researcher',
+                    'Alumni'
+                ];
+                
+                // Render each group in the defined order
                 const teamSections = document.getElementById('team-sections');
-                Object.keys(groups).forEach(groupName => {
-                    const people = groups[groupName];
-                    const sectionHTML = `
-                        <section class="team-section">
-                            <div class="container">
-                                <h2>${groupName}</h2>
-                                <div class="team-grid">
-                                    ${window.contentLoader.renderPeopleHTML(people, groupName)}
+                groupOrder.forEach(groupName => {
+                    if (groups[groupName] && groups[groupName].length > 0) {
+                        const people = groups[groupName];
+                        const sectionHTML = `
+                            <section class="team-section">
+                                <div class="container">
+                                    <h2>${groupName}</h2>
+                                    <div class="team-grid">
+                                        ${window.contentLoader.renderPeopleHTML(people, groupName)}
+                                    </div>
                                 </div>
-                            </div>
-                        </section>
-                    `;
-                    teamSections.innerHTML += sectionHTML;
+                            </section>
+                        `;
+                        teamSections.innerHTML += sectionHTML;
+                    }
                 });
             } catch (error) {
                 console.error('Error loading people content:', error);

@@ -10,4 +10,3 @@ github: ""
 linkedin: ""
 ---
 
-Ali Eshtehardi is a graduate student working on wearable robotics and neural interfaces. His research focuses on developing novel control strategies for rehabilitation devices and neural machine interfaces. 

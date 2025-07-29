@@ -46,22 +46,16 @@ class ContentLoader {
     // Load all people
     async loadPeople() {
         try {
-            const peopleFiles = [
-                'content/people/yue-wen.md',
-                'content/people/jirui-fu.md',
-                'content/people/hoa.md',
-                'content/people/ali.md',
-                'content/people/clara-r.md',
-                'content/people/jasmine-cheong.md',
-                'content/people/delta-zable.md',
-                'content/people/alumni-qingyuan.md',
-                'content/people/alumni-jane-doe.md',
-                'content/people/alumni-mike-wilson.md'
-            ];
+            // Load the dynamic file listing with cache busting
+            const timestamp = new Date().getTime();
+            const fileListingsResponse = await fetch(`content/file_listings.json?t=${timestamp}`);
+            const fileListings = await fileListingsResponse.json();
+            const peopleFiles = fileListings.people || [];
             
             const peoplePromises = peopleFiles.map(async (file) => {
                 try {
-                    const response = await fetch(file);
+                    const timestamp = new Date().getTime();
+                    const response = await fetch(`${file}?t=${timestamp}`);
                     const content = await response.text();
                     const { frontMatter, content: markdownContent } = this.parseFrontMatter(content);
                     
@@ -89,13 +83,10 @@ class ContentLoader {
     // Load all news
     async loadNews() {
         try {
-            const newsFiles = [
-                'content/news/rehabweek-2020.md',
-                'content/news/lab-party-2020.md',
-                'content/news/neural-interface-publication.md',
-                'content/news/iros-2023.md',
-                'content/news/ieee-robotics-award-2024.md'
-            ];
+            // Load the dynamic file listing
+            const fileListingsResponse = await fetch('content/file_listings.json');
+            const fileListings = await fileListingsResponse.json();
+            const newsFiles = fileListings.news || [];
             
             const newsPromises = newsFiles.map(async (file) => {
                 try {
@@ -127,14 +118,10 @@ class ContentLoader {
 
     async loadProjects() {
         try {
-            const projectFiles = [
-                'content/projects/neural-interface-wearable-robotics.md',
-                'content/projects/personalized-control-strategies.md',
-                'content/projects/adaptive-control-rehabilitation.md',
-                'content/projects/human-in-loop-optimization.md',
-                'content/projects/open-source-leg.md',
-                'content/projects/ai-powered-exoskeleton.md'
-            ];
+            // Load the dynamic file listing
+            const fileListingsResponse = await fetch('content/file_listings.json');
+            const fileListings = await fileListingsResponse.json();
+            const projectFiles = fileListings.projects || [];
             
             const projectPromises = projectFiles.map(async (file) => {
                 try {
@@ -271,12 +258,12 @@ class ContentLoader {
         return people.map(person => {
             // Determine the primary link for the name
             let nameLink = '';
-            if (person.frontMatter && person.frontMatter.website) {
-                nameLink = person.frontMatter.website;
-            } else if (person.frontMatter && person.frontMatter.scholar) {
-                nameLink = person.frontMatter.scholar;
-            } else if (person.frontMatter && person.frontMatter.orcid) {
-                nameLink = person.frontMatter.orcid;
+            if (person.website && person.website.trim() !== '') {
+                nameLink = person.website;
+            } else if (person.scholar && person.scholar.trim() !== '') {
+                nameLink = person.scholar;
+            } else if (person.orcid && person.orcid.trim() !== '') {
+                nameLink = person.orcid;
             }
             
             return `
@@ -293,11 +280,11 @@ class ContentLoader {
                         <div class="person-brief">${person.brief || person.content}</div>
                         <div class="person-social">
                             ${person.email ? `<a href="mailto:${person.email}" title="Email"><i class="fas fa-envelope"></i></a>` : ''}
-                            ${person.frontMatter && person.frontMatter.scholar && person.frontMatter.scholar.trim() !== '' ? `<a href="${person.frontMatter.scholar}" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>` : ''}
-                            ${person.frontMatter && person.frontMatter.orcid && person.frontMatter.orcid.trim() !== '' ? `<a href="${person.frontMatter.orcid}" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>` : ''}
-                            ${person.frontMatter && person.frontMatter.github && person.frontMatter.github.trim() !== '' ? `<a href="${person.frontMatter.github}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>` : ''}
-                            ${person.frontMatter && person.frontMatter.linkedin && person.frontMatter.linkedin.trim() !== '' ? `<a href="${person.frontMatter.linkedin}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
-                            ${person.frontMatter && person.frontMatter.website && person.frontMatter.website.trim() !== '' ? `<a href="${person.frontMatter.website}" target="_blank" title="Website"><i class="fas fa-globe"></i></a>` : ''}
+                            ${person.scholar && person.scholar.trim() !== '' ? `<a href="${person.scholar}" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>` : ''}
+                            ${person.orcid && person.orcid.trim() !== '' ? `<a href="${person.orcid}" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>` : ''}
+                            ${person.github && person.github.trim() !== '' ? `<a href="${person.github}" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>` : ''}
+                            ${person.linkedin && person.linkedin.trim() !== '' ? `<a href="${person.linkedin}" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>` : ''}
+                            ${person.website && person.website.trim() !== '' ? `<a href="${person.website}" target="_blank" title="Website"><i class="fas fa-globe"></i></a>` : ''}
                         </div>
                     </div>
                 </div>
@@ -466,12 +453,10 @@ class ContentLoader {
     // Load events
     async loadEvents() {
         try {
-            const eventFiles = [
-                'content/events/rehabweek-2024.md',
-                'content/events/lab-open-house-2024.md',
-                'content/events/iros-workshop-2024.md',
-                'content/events/ieee-robotics-conference-2024.md'
-            ];
+            // Load the dynamic file listing
+            const fileListingsResponse = await fetch('content/file_listings.json');
+            const fileListings = await fileListingsResponse.json();
+            const eventFiles = fileListings.events || [];
             
             const eventPromises = eventFiles.map(async (file) => {
                 try {

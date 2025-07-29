@@ -1,0 +1,39 @@
+{
+  "news": [
+    "content/news/test1.md",
+    "content/news/test2.md",
+    "content/news/test3.md",
+    "content/news/test4.md",
+    "content/news/test5.md",
+    "content/news/test6.md"
+  ],
+  "events": [
+    "content/events/ieee-robotics-conference-2024.md",
+    "content/events/iros-workshop-2024.md",
+    "content/events/lab-open-house-2024.md",
+    "content/events/rehabweek-2024.md",
+    "content/events/test-event.md"
+  ],
+  "projects": [
+    "content/projects/adaptive-control-rehabilitation.md",
+    "content/projects/ai-powered-exoskeleton.md",
+    "content/projects/human-in-loop-optimization.md",
+    "content/projects/neural-interface-wearable-robotics.md",
+    "content/projects/open-source-leg.md",
+    "content/projects/personalized-control-strategies.md",
+    "content/projects/test-project.md"
+  ],
+  "people": [
+    "content/people/ali.md",
+    "content/people/alumni-jane-doe.md",
+    "content/people/alumni-mike-wilson.md",
+    "content/people/alumni-qingyuan.md",
+    "content/people/clara-r.md",
+    "content/people/delta-zable.md",
+    "content/people/hoa.md",
+    "content/people/index.md",
+    "content/people/jasmine-cheong.md",
+    "content/people/jirui-fu.md",
+    "content/people/yue-wen.md"
+  ]
+}
