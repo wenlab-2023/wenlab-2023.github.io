@@ -227,6 +227,11 @@
                 // Store the total number of slides globally
                 window.totalSlides = slideshowData.length;
                 
+                // Initialize slideshow auto-advance after content is loaded
+                if (typeof initSlideshow === 'function') {
+                    initSlideshow();
+                }
+                
             } catch (error) {
                 console.error('Error loading slideshow:', error);
             }

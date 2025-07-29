@@ -36,12 +36,19 @@ function showSlides(n) {
 function initSlideshow() {
     let slides = document.getElementsByClassName("slide");
     if (slides.length > 0) {
+        // Clear any existing interval to prevent multiple timers
+        if (slideshowInterval) {
+            clearInterval(slideshowInterval);
+        }
+        
+        // Reset to first slide when reinitializing
+        slideIndex = 1;
         showSlides(slideIndex);
         
         // Auto-advance slides
         slideshowInterval = setInterval(function() {
             changeSlide(1);
-        }, 5000);
+        }, 3000);
     }
 }
 
