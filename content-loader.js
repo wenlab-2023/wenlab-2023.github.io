@@ -119,13 +119,13 @@ class ContentLoader {
     async loadProjects() {
         try {
             // Load the dynamic file listing
-            const fileListingsResponse = await fetch('content/file_listings.json');
+            const fileListingsResponse = await fetch('content/file_listings.json?v=' + Date.now());
             const fileListings = await fileListingsResponse.json();
             const projectFiles = fileListings.projects || [];
             
             const projectPromises = projectFiles.map(async (file) => {
                 try {
-                    const response = await fetch(file);
+                    const response = await fetch(file + '?v=' + Date.now());
                     const content = await response.text();
                     const { frontMatter, content: markdownContent } = this.parseFrontMatter(content);
                     
