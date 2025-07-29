@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Title - WEN Lab</title>
+    <title>Project Detail - WEN Lab</title>
     <link rel="icon" type="image/png" href="assets/media/icon.png">
     <link rel="stylesheet" href="styles.css?v=1753814932">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .dropdown {
             position: relative;
@@ -71,10 +72,10 @@
                 <li class="nav-item">
                     <a href="publications.html" class="nav-link">Publications</a>
                 </li>
-                                                        <li class="nav-item">
+                <li class="nav-item">
                     <a href="news-events.html" class="nav-link">News & Events</a>
                 </li>
-                                        <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a href="get-involved.html" class="nav-link">Get Involved</a>
                     <div class="dropdown-content">
                         <a href="research-participants.html">For Research Participants</a>
@@ -90,20 +91,20 @@
         </div>
     </nav>
 
-    <!-- Project Header -->
-    <section class="project-hero">
+    <!-- Project Hero Section -->
+    <section class="news-hero">
         <div class="container">
-            <div class="project-hero-content">
-                <div class="project-hero-text">
-                    <h1 id="project-title">Project Title</h1>
-                    <div class="project-meta">
-                        <div class="project-pi"><strong>Principal Investigator:</strong> <span id="project-pi">Dr. Yue Wen</span></div>
-                        <div class="project-team"><strong>Team Members:</strong> <span id="project-team">Team Members</span></div>
-                        <div class="project-status"><strong>Status:</strong> <span id="project-status">Active</span></div>
-                        <div class="project-funding"><strong>Funding:</strong> <span id="project-funding">NSF</span></div>
-                    </div>
+            <div class="news-hero-content">
+                <div class="news-meta">
+                    <span class="news-date" id="project-status"></span>
+                    <span class="news-category" id="project-funding"></span>
                 </div>
-                <div class="project-image" id="project-image">
+                <h1 id="project-title">Project Title</h1>
+                <div class="project-meta">
+                    <div class="project-pi"><strong>Principal Investigator:</strong> <span id="project-pi">Dr. Yue Wen</span></div>
+                    <div class="project-team"><strong>Team Members:</strong> <span id="project-team">Team Members</span></div>
+                </div>
+                <div class="news-image" id="project-image">
                     <!-- Image will be loaded dynamically -->
                 </div>
             </div>
@@ -111,9 +112,9 @@
     </section>
 
     <!-- Project Content -->
-    <section class="project-content">
+    <section class="news-content">
         <div class="container">
-            <div class="project-details" id="project-content">
+            <div class="news-details" id="project-content">
                 <!-- Content will be loaded from Markdown -->
             </div>
         </div>
@@ -136,7 +137,7 @@
                         <a href="mailto:jiruifu@gmail.com"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                                <div class="footer-section footer-logo">
+                <div class="footer-section footer-logo">
                     <a href="https://mae.ucf.edu" target="_blank">
                         <img src="assets/media/logo-foot.png" alt="WEN Lab Logo" class="footer-logo-img">
                     </a>
@@ -151,7 +152,7 @@
         </div>
     </footer>
 
-    <script src="markdown-parser.js"></script>
+    <script src="markdown-parser.js?v=1"></script>
     <script src="content-loader.js"></script>
     <script src="script.js"></script>
     <script>
@@ -163,33 +164,40 @@
         async function loadProjectContent() {
             if (!projectId) {
                 console.error('No project ID provided');
+                document.getElementById('project-content').innerHTML = '<p>Project not found.</p>';
                 return;
             }
             
             try {
                 const response = await fetch(`content/projects/${projectId}.md`);
-                const markdown = await response.text();
+                if (!response.ok) {
+                    throw new Error('Project not found');
+                }
                 
-                // Parse front matter and content
-                const { frontMatter, content } = window.contentLoader.parseFrontMatter(markdown);
+                const content = await response.text();
+                const parsed = window.contentLoader.parseFrontMatter(content);
                 
-                // Update page title and meta information
-                document.title = `${frontMatter.title} - WEN Lab`;
-                document.getElementById('project-title').textContent = frontMatter.title;
-                document.getElementById('project-pi').textContent = frontMatter.principal_investigator;
-                document.getElementById('project-team').textContent = frontMatter.team_members;
-                document.getElementById('project-status').textContent = frontMatter.status;
-                document.getElementById('project-funding').textContent = frontMatter.funding;
+                // Update page title
+                document.title = `${parsed.frontMatter.title} - WEN Lab`;
                 
-                // Parse and display content first
-                const htmlContent = window.markdownParser.parse(content);
-                document.getElementById('project-content').innerHTML = htmlContent;
+                // Update hero section
+                document.getElementById('project-title').textContent = parsed.frontMatter.title;
+                document.getElementById('project-status').innerHTML = `<i class="fas fa-circle"></i> ${parsed.frontMatter.status}`;
+                document.getElementById('project-funding').innerHTML = `<i class="fas fa-dollar-sign"></i> ${parsed.frontMatter.funding}`;
+                document.getElementById('project-pi').textContent = parsed.frontMatter.principal_investigator;
+                document.getElementById('project-team').textContent = parsed.frontMatter.team_members;
+                
+                // Update content
+                document.getElementById('project-content').innerHTML = window.markdownParser.parse(parsed.content);
                 
                 // Update image if available
-                if (frontMatter.image) {
-                    document.getElementById('project-image').innerHTML = `<img src="${frontMatter.image}" alt="${frontMatter.title}">`;
+                console.log('Project image:', parsed.frontMatter.image);
+                if (parsed.frontMatter.image && parsed.frontMatter.image.trim() !== '') {
+                    document.getElementById('project-image').innerHTML = `<img src="${parsed.frontMatter.image}" alt="${parsed.frontMatter.title}">`;
+                    console.log('Image displayed');
                 } else {
                     document.getElementById('project-image').style.display = 'none';
+                    console.log('Image hidden');
                 }
                 
             } catch (error) {
@@ -272,7 +280,6 @@
             loadRecentNews();
         });
     </script>
-
 
 </body>
 </html> 

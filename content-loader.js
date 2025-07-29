@@ -402,9 +402,6 @@ class ContentLoader {
             
             return `
                 <div class="project-card" onclick="window.location.href='project-template.html?id=${projectId}'">
-                    <div class="project-card-image">
-                        <img src="${project.image || 'assets/media/h1.jpg'}" alt="${project.title}" onerror="this.src='assets/media/h1.jpg'">
-                    </div>
                     <div class="project-card-content">
                         <h3>${project.title}</h3>
                         <div class="project-card-meta">
