@@ -1,5 +1,5 @@
 ## Lab Name
-# <span class="underline">W</span>earable <span class="underline">E</span>ngineering<br class="mobile-break"> and <span class="underline">N</span>eural Interface Laboratory
+# Welcome to the WEN Lab
 
 ## About Us
 The **W**earable **E**ngineering and **N**eural Interface Laboratory (WEN Lab) at University of Central Florida has been a center of excellence for rehabilitation, wearable engineering, robotics and neural machine interface since its founding in 2023.

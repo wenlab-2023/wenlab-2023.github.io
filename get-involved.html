@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - WEN Lab</title>
+    <title>Get Involved - WEN Lab</title>
     <link rel="icon" type="image/png" href="assets/media/icon.png">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .dropdown {
             position: relative;
@@ -49,6 +50,63 @@
         .dropdown-content a:last-child {
             border-radius: 0 0 8px 8px;
         }
+        
+        .get-involved-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .involvement-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+            text-align: center;
+        }
+        
+        .involvement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .involvement-card i {
+            font-size: 3rem;
+            color: #FFC904;
+            margin-bottom: 1rem;
+        }
+        
+        .involvement-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .involvement-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .involvement-card a {
+            display: inline-block;
+            background: #FFC904;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .involvement-card a:hover {
+            background: #e6b800;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -60,7 +118,7 @@
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link active">About Us</a>
+                    <a href="about.html" class="nav-link">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a href="people.html" class="nav-link">People</a>
@@ -71,16 +129,16 @@
                 <li class="nav-item">
                     <a href="publications.html" class="nav-link">Publications</a>
                 </li>
-                                                        <li class="nav-item">
+                <li class="nav-item">
                     <a href="news-events.html" class="nav-link">News & Events</a>
                 </li>
-                        <li class="nav-item dropdown">
-                            <a href="get-involved.html" class="nav-link">Get Involved</a>
-                            <div class="dropdown-content">
-                                <a href="research-participants.html">For Research Participants</a>
-                                <a href="interested-students.html">For Interested Students</a>
-                            </div>
-                        </li>
+                <li class="nav-item dropdown">
+                    <a href="get-involved.html" class="nav-link active">Get Involved</a>
+                    <div class="dropdown-content">
+                        <a href="research-participants.html">For Research Participants</a>
+                        <a href="interested-students.html">For Interested Students</a>
+                    </div>
+                </li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -90,26 +148,27 @@
         </div>
     </nav>
 
-
-
-    <!-- About Content -->
-    <section class="about-content">
+    <!-- Get Involved Introduction -->
+    <section class="current-projects">
         <div class="container">
-            <div class="about-sections">
-                <!-- Introduction Section -->
-                <div class="about-section">
-                    <h2>Introduction</h2>
-                    <div id="introduction-content">
-                        <!-- Content will be loaded from Markdown -->
-                    </div>
+            <h2>Get Involved</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                Join us in advancing wearable robotics and neural interface research. We welcome participants and students who are passionate about making a difference.
+            </p>
+            
+            <div class="get-involved-grid">
+                <div class="involvement-card">
+                    <i class="fas fa-users"></i>
+                    <h3>For Research Participants</h3>
+                    <p>Help us advance research in wearable robotics and neural interfaces by participating in our studies. Your contribution makes a real difference.</p>
+                    <a href="research-participants.html">Learn More</a>
                 </div>
-
-                <!-- Research Areas Section -->
-                <div class="about-section">
-                    <h2>Our Research Areas</h2>
-                    <div id="research-areas-content">
-                        <!-- Content will be loaded from Markdown -->
-                    </div>
+                
+                <div class="involvement-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>For Interested Students</h3>
+                    <p>Join our research team as a student researcher. Gain hands-on experience in cutting-edge technology and contribute to meaningful projects.</p>
+                    <a href="interested-students.html">Learn More</a>
                 </div>
             </div>
         </div>
@@ -144,36 +203,9 @@
         </div>
     </footer>
 
-    <script src="markdown-parser.js"></script>
     <script src="content-loader.js"></script>
     <script src="script.js"></script>
     <script>
-        // Load and display about content
-        async function loadAboutContent() {
-            try {
-                const response = await fetch('content/about.md');
-                const markdown = await response.text();
-                
-                // Parse sections
-                const sections = window.markdownParser.splitSections(markdown);
-                
-                // Display introduction
-                if (sections.introduction) {
-                    const introductionContent = window.markdownParser.parse(sections.introduction);
-                    document.getElementById('introduction-content').innerHTML = introductionContent;
-                }
-                
-                // Display research areas
-                if (sections.research_areas) {
-                    const researchAreasContent = window.markdownParser.parse(sections.research_areas);
-                    document.getElementById('research-areas-content').innerHTML = researchAreasContent;
-                }
-                
-            } catch (error) {
-                console.error('Error loading about content:', error);
-            }
-        }
-        
         // Load recent news for footer
         async function loadRecentNews() {
             try {
@@ -199,10 +231,7 @@
         }
         
         // Load content when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            loadAboutContent();
-            loadRecentNews();
-        });
+        document.addEventListener('DOMContentLoaded', loadRecentNews);
     </script>
 </body>
 </html> 

@@ -8,6 +8,49 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #FFC904;
+        }
+        
+        .dropdown-content a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .dropdown-content a:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -30,14 +73,15 @@
                     <a href="publications.html" class="nav-link">Publications</a>
                 </li>
                                         <li class="nav-item">
-                            <a href="news.html" class="nav-link">News</a>
+                            <a href="news-events.html" class="nav-link">News & Events</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="events.html" class="nav-link">Events</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="contact.html" class="nav-link">Contact</a>
-                        </li>
+                                        <li class="nav-item dropdown">
+                    <a href="get-involved.html" class="nav-link">Get Involved</a>
+                    <div class="dropdown-content">
+                        <a href="research-participants.html">For Research Participants</a>
+                        <a href="interested-students.html">For Interested Students</a>
+                    </div>
+                </li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -99,8 +143,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Lab Address</h3>
-                    <p>Wearable Engineering and Neural Interface Laboratory<br>University of Central Florida<br>12201 Research Pkwy<br>Suite 150A<br>Orlando, FL 32816</p>
+                    <h3>Recent News</h3>
+                    <div id="recent-news-footer">
+                        <!-- Recent news will be loaded here -->
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h3>Follow Us</h3>
@@ -122,6 +168,7 @@
     </footer>
 
     <script src="markdown-parser.js"></script>
+    <script src="content-loader.js"></script>
     <script src="script.js"></script>
     <script>
         // Load and display Markdown content
@@ -157,8 +204,35 @@
             }
         }
         
+        // Load recent news for footer
+        async function loadRecentNews() {
+            try {
+                await window.contentLoader.loadNews();
+                const recentNews = window.contentLoader.news.slice(0, 3); // Get latest 3 news
+                
+                const recentNewsHTML = recentNews.map(item => {
+                    const newsId = item.filename ? item.filename.replace('.md', '') : item.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+                    return `
+                        <div class="recent-news-item">
+                            <a href="news-events-template.html?id=${newsId}">
+                                <span class="recent-news-title">${item.title}</span>
+                                <span class="recent-news-date">${item.date}</span>
+                            </a>
+                        </div>
+                    `;
+                }).join('');
+                
+                document.getElementById('recent-news-footer').innerHTML = recentNewsHTML;
+            } catch (error) {
+                console.error('Error loading recent news:', error);
+            }
+        }
+        
         // Load content when page loads
-        document.addEventListener('DOMContentLoaded', loadMarkdownContent);
+        document.addEventListener('DOMContentLoaded', () => {
+            loadMarkdownContent();
+            loadRecentNews();
+        });
     </script>
 </body>
 </html> 

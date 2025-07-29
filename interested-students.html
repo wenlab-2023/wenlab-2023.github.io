@@ -3,12 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - WEN Lab</title>
+    <title>For Interested Students - WEN Lab</title>
     <link rel="icon" type="image/png" href="assets/media/icon.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #FFC904;
+        }
+        
+        .dropdown-content a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .dropdown-content a:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -33,8 +76,12 @@
                 <li class="nav-item">
                     <a href="news-events.html" class="nav-link">News & Events</a>
                 </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link active">Contact</a>
+                <li class="nav-item dropdown">
+                    <a href="get-involved.html" class="nav-link active">Get Involved</a>
+                    <div class="dropdown-content">
+                        <a href="research-participants.html">For Research Participants</a>
+                        <a href="interested-students.html">For Interested Students</a>
+                    </div>
                 </li>
             </ul>
             <div class="hamburger">
@@ -45,12 +92,14 @@
         </div>
     </nav>
 
-    <!-- Contact Introduction -->
+    <!-- Interested Students Introduction -->
     <section class="current-projects">
         <div class="container">
-            <h2>Opportunities for Students</h2>
+            <h2>For Interested Students</h2>
             <div class="contact-content" id="contact-intro-content">
-                <!-- Content will be loaded from contact-intro.md -->
+                <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
+                    Join our research team and gain hands-on experience in cutting-edge wearable robotics and neural interface technology. We welcome students from various backgrounds who are passionate about innovation.
+                </p>
             </div>
         </div>
     </section>
@@ -61,7 +110,7 @@
             <div class="contact-map-grid">
                 <!-- Contact Information -->
                 <div class="contact-info-side">
-                    <h2>Contact Information</h2>
+                    <h2>Student Opportunities</h2>
                     <div class="contact-cards">
                         <div class="contact-card">
                             <div class="contact-icon">
@@ -78,14 +127,14 @@
                             <div class="contact-icon">
                                 <i class="fas fa-edit"></i>
                             </div>
-                            <h3>Get in Touch</h3>
-                            <p>Send us a message or apply for a position using our contact form:</p>
+                            <h3>Apply for Position</h3>
+                            <p>Submit your application through our student application form:</p>
                             <div class="form-cta">
                                 <a href="https://forms.gle/JePUA2tiV5axKTth6" target="_blank" class="contact-form-btn">
                                     <i class="fas fa-edit"></i>
-                                    Open Contact Form
+                                    Student Application Form
                                 </a>
-                                <p class="form-note">Click the button above to open our Google Form where you can send us a message or apply for a position.</p>
+                                <p class="form-note">Click the button above to open our Google Form where you can submit your application for student research positions.</p>
                             </div>
                         </div>
                     </div>
@@ -98,25 +147,21 @@
                         <div id="map" style="width: 100%; height: 400px;"></div>
                     </div>
                     <div class="map-info">
-                        <h3>University Tower Building</h3>
+                        <h3>WEN Lab Location</h3>
                         <div class="map-info-grid">
                             <div class="map-info-left">
-                                <p><strong>Address:</strong> 12201 Research Pkwy, Orlando, FL 32816</p>
-                                <p><strong>Suite:</strong> 150A</p>
-                                <p><strong>Institution:</strong> University of Central Florida<br>Department of Aerospace and Mechanical Engineering</p>
+                                <p><strong>Address:</strong><br>
+                                Wearable Engineering and Neural Interface Laboratory<br>
+                                University of Central Florida<br>
+                                12201 Research Pkwy<br>
+                                Suite 150A<br>
+                                Orlando, FL 32816</p>
+                            </div>
+                            <div class="map-info-right">
                                 <a href="https://maps.google.com/?q=12201+Research+Pkwy,+Orlando,+FL+32816" target="_blank" class="directions-btn">
                                     <i class="fas fa-directions"></i>
                                     Get Directions
                                 </a>
-                            </div>
-                            <div class="map-info-right">
-                                <div class="location-details">
-                                    <h3>Getting Here</h3>
-                                    <p>The WEN Lab is located in the University Tower Building on the UCF Research Park campus. The building is easily accessible by car and public transportation.</p>
-                                    
-                                    <h3>Parking</h3>
-                                    <p>Visitor parking is available in the Research Park. Please contact us in advance if you need parking arrangements for your visit.</p>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -130,8 +175,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Lab Address</h3>
-                    <p>Wearable Engineering and Neural Interface Laboratory<br>University of Central Florida<br>12201 Research Pkwy<br>Suite 150A<br>Orlando, FL 32816</p>
+                    <h3>Recent News</h3>
+                    <div id="recent-news-footer">
+                        <!-- Recent news will be loaded here -->
+                    </div>
                 </div>
                 <div class="footer-section">
                     <h3>Follow Us</h3>
@@ -152,56 +199,46 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="markdown-parser.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
     <script>
-        // Load contact intro content from markdown
-        async function loadContactIntro() {
+        // Initialize map
+        var map = L.map('map').setView([28.6024, -81.2001], 15);
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // Add marker for WEN Lab
+        var marker = L.marker([28.6024, -81.2001]).addTo(map);
+        marker.bindPopup("<b>WEN Lab</b><br>Wearable Engineering and Neural Interface Laboratory<br>UCF Research Park").openPopup();
+        
+        // Load recent news for footer
+        async function loadRecentNews() {
             try {
-                const response = await fetch('content/contact-intro.md');
-                const markdownText = await response.text();
-                const htmlContent = window.markdownParser.parse(markdownText);
-                document.getElementById('contact-intro-content').innerHTML = htmlContent;
+                await window.contentLoader.loadNews();
+                const recentNews = window.contentLoader.news.slice(0, 3); // Get latest 3 news
+                
+                const recentNewsHTML = recentNews.map(item => {
+                    const newsId = item.filename ? item.filename.replace('.md', '') : item.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+                    return `
+                        <div class="recent-news-item">
+                            <a href="news-events-template.html?id=${newsId}">
+                                <span class="recent-news-title">${item.title}</span>
+                                <span class="recent-news-date">${item.date}</span>
+                            </a>
+                        </div>
+                    `;
+                }).join('');
+                
+                document.getElementById('recent-news-footer').innerHTML = recentNewsHTML;
             } catch (error) {
-                console.error('Error loading contact intro content:', error);
-                // Fallback content is already in the HTML
+                console.error('Error loading recent news:', error);
             }
         }
-
-        // Initialize the map when the page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load contact intro content
-            loadContactIntro();
-            
-            // Coordinates for University Tower Building, Orlando, FL
-            const ucfCoords = [28.588023212223625, -81.19866165450284];
-            
-            // Create the map
-            const map = L.map('map').setView(ucfCoords, 15);
-            
-            // Add OpenStreetMap tiles
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
-            
-            // Add a marker for the WEN Lab location
-            const marker = L.marker(ucfCoords).addTo(map);
-            
-            // Add a popup with lab information
-            marker.bindPopup(`
-                <div style="text-align: center;">
-                    <h3 style="margin: 0 0 10px 0; color: #2c3e50;">WEN Lab @ UCF</h3>
-                    <p style="margin: 5px 0;"><strong>University Tower Building</strong></p>
-                    <p style="margin: 5px 0;">Suite 150A</p>
-                    <p style="margin: 5px 0;">12201 Research Pkwy</p>
-                    <p style="margin: 5px 0;">Orlando, FL 32816</p>
-                </div>
-            `);
-            
-            // Open the popup by default
-            marker.openPopup();
-        });
+        
+        // Load content when page loads
+        document.addEventListener('DOMContentLoaded', loadRecentNews);
     </script>
 </body>
 </html> 

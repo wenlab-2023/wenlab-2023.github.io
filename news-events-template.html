@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Detail - WEN Lab</title>
+    <link rel="icon" type="image/png" href="assets/media/icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #FFC904;
+        }
+        
+        .dropdown-content a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .dropdown-content a:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">WEN Lab @ UCF</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="people.html" class="nav-link">People</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+                                                        <li class="nav-item">
+                    <a href="news-events.html" class="nav-link">News & Events</a>
+                </li>
+                                        <li class="nav-item dropdown">
+                    <a href="get-involved.html" class="nav-link">Get Involved</a>
+                    <div class="dropdown-content">
+                        <a href="research-participants.html">For Research Participants</a>
+                        <a href="interested-students.html">For Interested Students</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- News Hero Section -->
+    <section class="news-hero">
+        <div class="container">
+            <div class="news-hero-content">
+                <div class="news-meta">
+                    <span class="news-date" id="news-date"></span>
+                    <span class="news-category" id="news-category"></span>
+                </div>
+                <h1 id="news-title"></h1>
+                <div class="news-image" id="news-image">
+                    <!-- Image will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Content -->
+    <section class="news-content">
+        <div class="container">
+            <div class="news-details" id="news-details">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Recent News</h3>
+                    <div id="recent-news-footer">
+                        <!-- Recent news will be loaded here -->
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/wenlab-2023" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:jiruifu@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section footer-logo">
+                    <a href="https://mae.ucf.edu" target="_blank">
+                        <img src="assets/media/logo-foot.png" alt="WEN Lab Logo" class="footer-logo-img">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WEN Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="markdown-parser.js"></script>
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Load content based on ID parameter (news or events)
+        async function loadContent() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const contentId = urlParams.get('id');
+            
+            if (!contentId) {
+                document.getElementById('news-details').innerHTML = '<p>Content not found.</p>';
+                return;
+            }
+
+            // Try to load as news first
+            try {
+                const newsResponse = await fetch(`content/news/${contentId}.md`);
+                if (newsResponse.ok) {
+                    await loadNewsContent(contentId);
+                    return;
+                }
+            } catch (error) {
+                // Continue to try events
+            }
+
+            // Try to load as event
+            try {
+                const eventResponse = await fetch(`content/events/${contentId}.md`);
+                if (eventResponse.ok) {
+                    await loadEventContent(contentId);
+                    return;
+                }
+            } catch (error) {
+                // Continue to error handling
+            }
+
+            // If neither found, show error
+            document.getElementById('news-details').innerHTML = '<p>Content not found.</p>';
+        }
+
+        // Load news content
+        async function loadNewsContent(newsId) {
+            try {
+                const response = await fetch(`content/news/${newsId}.md`);
+                const content = await response.text();
+                const parsed = window.contentLoader.parseFrontMatter(content);
+                
+                // Update page title
+                document.title = `${parsed.frontMatter.title} - WEN Lab`;
+                
+                // Update hero section
+                document.getElementById('news-title').textContent = parsed.frontMatter.title;
+                document.getElementById('news-date').innerHTML = `<i class="fas fa-calendar"></i> ${parsed.frontMatter.date}`;
+                document.getElementById('news-category').innerHTML = `<i class="fas fa-${getCategoryIcon(parsed.frontMatter.category)}"></i> ${parsed.frontMatter.category}`;
+                
+                // Update content
+                document.getElementById('news-details').innerHTML = window.markdownParser.parse(parsed.content);
+                
+                // Update image if available
+                if (parsed.frontMatter.image) {
+                    document.getElementById('news-image').innerHTML = `<img src="${parsed.frontMatter.image}" alt="${parsed.frontMatter.title}">`;
+                } else {
+                    document.getElementById('news-image').style.display = 'none';
+                }
+                
+            } catch (error) {
+                console.error('Error loading news content:', error);
+                document.getElementById('news-details').innerHTML = '<p>Error loading news article.</p>';
+            }
+        }
+
+        // Load event content
+        async function loadEventContent(eventId) {
+            try {
+                const response = await fetch(`content/events/${eventId}.md`);
+                const content = await response.text();
+                const parsed = window.contentLoader.parseFrontMatter(content);
+                
+                // Update page title
+                document.title = `${parsed.frontMatter.title} - WEN Lab`;
+                
+                // Update hero section
+                document.getElementById('news-title').textContent = parsed.frontMatter.title;
+                document.getElementById('news-date').innerHTML = `<i class="fas fa-calendar"></i> ${parsed.frontMatter.date}`;
+                document.getElementById('news-category').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${parsed.frontMatter.location}`;
+                
+                // Add event type as additional category
+                const eventTypeElement = document.createElement('span');
+                eventTypeElement.className = 'news-category';
+                eventTypeElement.innerHTML = `<i class="fas fa-${getEventTypeIcon(parsed.frontMatter.type)}"></i> ${parsed.frontMatter.type}`;
+                document.querySelector('.news-meta').appendChild(eventTypeElement);
+                
+                // Update content
+                document.getElementById('news-details').innerHTML = window.markdownParser.parse(parsed.content);
+                
+                // Update image if available
+                if (parsed.frontMatter.image) {
+                    document.getElementById('news-image').innerHTML = `<img src="${parsed.frontMatter.image}" alt="${parsed.frontMatter.title}">`;
+                } else {
+                    document.getElementById('news-image').style.display = 'none';
+                }
+                
+            } catch (error) {
+                console.error('Error loading event content:', error);
+                document.getElementById('news-details').innerHTML = '<p>Error loading event.</p>';
+            }
+        }
+
+        function getCategoryIcon(category) {
+            const icons = {
+                'Award': 'trophy',
+                'Event': 'users',
+                'Research': 'flask',
+                'Conference': 'presentation'
+            };
+            return icons[category] || 'newspaper';
+        }
+
+        function getEventTypeIcon(type) {
+            const icons = {
+                'Conference': 'presentation',
+                'Workshop': 'chalkboard-teacher',
+                'Open House': 'home',
+                'Seminar': 'graduation-cap',
+                'Symposium': 'users'
+            };
+            return icons[type] || 'calendar';
+        }
+
+        // Load recent news for footer
+        async function loadRecentNews() {
+            try {
+                await window.contentLoader.loadNews();
+                const recentNews = window.contentLoader.news.slice(0, 3); // Get latest 3 news
+                
+                const recentNewsHTML = recentNews.map(item => {
+                    const newsId = item.filename ? item.filename.replace('.md', '') : item.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+                    return `
+                        <div class="recent-news-item">
+                            <a href="news-events-template.html?id=${newsId}">
+                                <span class="recent-news-title">${item.title}</span>
+                                <span class="recent-news-date">${item.date}</span>
+                            </a>
+                        </div>
+                    `;
+                }).join('');
+                
+                document.getElementById('recent-news-footer').innerHTML = recentNewsHTML;
+            } catch (error) {
+                console.error('Error loading recent news:', error);
+            }
+        }
+        
+        // Load content when page is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            loadContent();
+            loadRecentNews();
+        });
+    </script>
+
+
+</body>
+</html> 

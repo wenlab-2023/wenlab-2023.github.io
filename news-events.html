@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Events - WEN Lab</title>
+    <link rel="icon" type="image/png" href="assets/media/icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            top: 100%;
+            left: 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f8f9fa;
+            color: #FFC904;
+        }
+        
+        .dropdown-content a:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .dropdown-content a:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab-button.active {
+            color: #2c3e50;
+            border-bottom-color: #3498db;
+        }
+        
+        .tab-button:hover {
+            color: #2c3e50;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .combined-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">WEN Lab @ UCF</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="people.html" class="nav-link">People</a>
+                </li>
+                <li class="nav-item">
+                    <a href="projects.html" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="publications.html" class="nav-link">Publications</a>
+                </li>
+                <li class="nav-item">
+                    <a href="news-events.html" class="nav-link active">News & Events</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="get-involved.html" class="nav-link">Get Involved</a>
+                    <div class="dropdown-content">
+                        <a href="research-participants.html">For Research Participants</a>
+                        <a href="interested-students.html">For Interested Students</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- News & Events Section -->
+    <section class="current-projects">
+        <div class="container">
+            <h2>News & Events</h2>
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="showTab('news')">News</button>
+                <button class="tab-button" onclick="showTab('events')">Events</button>
+                <button class="tab-button" onclick="showTab('all')">All</button>
+            </div>
+            
+            <!-- News Tab -->
+            <div id="news-tab" class="tab-content active">
+                <div class="news-grid" id="news-grid">
+                    <!-- News content will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Events Tab -->
+            <div id="events-tab" class="tab-content">
+                <div id="events-grid">
+                    <!-- Events content will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- All Tab -->
+            <div id="all-tab" class="tab-content">
+                <div class="combined-grid" id="combined-grid">
+                    <!-- Combined content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Recent News</h3>
+                    <div id="recent-news-footer">
+                        <!-- Recent news will be loaded here -->
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/wenlab-2023" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="mailto:jiruifu@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section footer-logo">
+                    <a href="https://mae.ucf.edu" target="_blank">
+                        <img src="assets/media/logo-foot.png" alt="WEN Lab Logo" class="footer-logo-img">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 WEN Lab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="markdown-parser.js"></script>
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+    <script>
+        let newsData = [];
+        let eventsData = [];
+        
+        // Tab functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Load content for the selected tab
+            if (tabName === 'all') {
+                loadCombinedContent();
+            }
+        }
+        
+        // Load news content
+        async function loadNewsContent() {
+            try {
+                await window.contentLoader.loadNews();
+                newsData = window.contentLoader.news;
+                const newsGrid = document.getElementById('news-grid');
+                newsGrid.innerHTML = window.contentLoader.renderNewsHTML(newsData);
+            } catch (error) {
+                console.error('Error loading news content:', error);
+            }
+        }
+        
+        // Load events content
+        async function loadEventsContent() {
+            try {
+                await window.contentLoader.loadEvents();
+                eventsData = window.contentLoader.events;
+                const eventsGrid = document.getElementById('events-grid');
+                eventsGrid.innerHTML = window.contentLoader.renderEventsHTML(eventsData);
+            } catch (error) {
+                console.error('Error loading events:', error);
+                document.getElementById('events-grid').innerHTML = '<p>Error loading events.</p>';
+            }
+        }
+        
+        // Load combined content
+        function loadCombinedContent() {
+            const combinedGrid = document.getElementById('combined-grid');
+            const allItems = [...newsData, ...eventsData];
+            
+            // Sort by date (assuming both have date fields)
+            allItems.sort((a, b) => {
+                const dateA = new Date(a.date);
+                const dateB = new Date(b.date);
+                return dateB - dateA; // Most recent first
+            });
+            
+            const combinedHTML = allItems.map(item => {
+                if (item.category) {
+                    // This is a news item
+                    const newsId = item.filename ? item.filename.replace('.md', '') : item.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+                    return `
+                        <div class="news-card" onclick="window.location.href='news-events-template.html?id=${newsId}'">
+                            <div class="news-card-content">
+                                <div class="news-card-meta">
+                                    <span class="news-date"><i class="fas fa-calendar"></i> ${item.date}</span>
+                                    <span class="news-category"><i class="fas fa-${window.contentLoader.getCategoryIcon(item.category)}"></i> ${item.category}</span>
+                                    <span class="item-type" style="background: #3498db; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">News</span>
+                                </div>
+                                <h3>${item.title}</h3>
+                                <div class="news-card-excerpt">
+                                    ${window.contentLoader.getNewsExcerpt(item.content)}
+                                </div>
+                                <div class="news-card-link">
+                                    <span>Click to view details <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // This is an event item
+                    const eventId = item.filename ? item.filename.replace('.md', '') : item.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+                    return `
+                        <div class="event-card" onclick="window.location.href='news-events-template.html?id=${eventId}'">
+                            <div class="event-card-content">
+                                <div class="event-card-meta">
+                                    <span class="event-date"><i class="fas fa-calendar"></i> ${item.date}</span>
+                                    <span class="event-location"><i class="fas fa-map-marker-alt"></i> ${item.location}</span>
+                                    <span class="event-type"><i class="fas fa-${window.contentLoader.getEventTypeIcon(item.type)}"></i> ${item.type}</span>
+                                    <span class="item-type" style="background: #e74c3c; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem;">Event</span>
+                                </div>
+                                <h3>${item.title}</h3>
+                                <div class="event-card-excerpt">
+                                    ${window.contentLoader.getEventExcerpt(item.content)}
+                                </div>
+                                <div class="event-card-link">
+                                    <span>Click to view details <i class="fas fa-arrow-right"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }).join('');
+            
+            combinedGrid.innerHTML = combinedHTML;
+        }
+        
+        // News content toggle functionality
+        function toggleNewsContent(button) {
+            const newsCard = button.closest('.news-card');
+            const newsBody = newsCard.querySelector('.news-body');
+            const newsExcerpt = newsCard.querySelector('.news-excerpt');
+            
+            if (newsBody.style.display === 'block') {
+                newsBody.style.display = 'none';
+                newsExcerpt.style.display = 'block';
+                button.textContent = 'Read More';
+            } else {
+                newsBody.style.display = 'block';
+                newsExcerpt.style.display = 'none';
+                button.textContent = 'Read Less';
+            }
+        }
+        
+        // Load recent news for footer
+        async function loadRecentNews() {
+            try {
+                await window.contentLoader.loadNews();
+                const recentNews = window.contentLoader.news.slice(0, 3); // Get latest 3 news
+                
+                const recentNewsHTML = recentNews.map(item => {
+                    const newsId = item.filename ? item.filename.replace('.md', '') : item.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+                    return `
+                        <div class="recent-news-item">
+                            <a href="news-events-template.html?id=${newsId}">
+                                <span class="recent-news-title">${item.title}</span>
+                                <span class="recent-news-date">${item.date}</span>
+                            </a>
+                        </div>
+                    `;
+                }).join('');
+                
+                document.getElementById('recent-news-footer').innerHTML = recentNewsHTML;
+            } catch (error) {
+                console.error('Error loading recent news:', error);
+            }
+        }
+        
+        // Load content when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadNewsContent();
+            await loadEventsContent();
+            await loadRecentNews();
+        });
+    </script>
+</body>
+</html> 

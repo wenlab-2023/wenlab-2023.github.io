@@ -376,10 +376,7 @@ class ContentLoader {
             const newsId = item.filename ? item.filename.replace('.md', '') : item.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
             
             return `
-                <div class="news-card" onclick="window.location.href='news-template.html?id=${newsId}'">
-                    <div class="news-card-image">
-                        <img src="${item.image || 'assets/media/h1.jpg'}" alt="${item.title}" onerror="this.src='assets/media/h1.jpg'">
-                    </div>
+                <div class="news-card" onclick="window.location.href='news-events-template.html?id=${newsId}'">
                     <div class="news-card-content">
                         <div class="news-card-meta">
                             <span class="news-date"><i class="fas fa-calendar"></i> ${item.date}</span>
@@ -511,10 +508,7 @@ class ContentLoader {
             const eventId = item.filename ? item.filename.replace('.md', '') : item.title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
             
             return `
-                <div class="event-card" onclick="window.location.href='event-template.html?id=${eventId}'">
-                    <div class="event-card-image">
-                        <img src="${item.image || 'assets/media/h1.jpg'}" alt="${item.title}" onerror="this.src='assets/media/h1.jpg'">
-                    </div>
+                <div class="event-card" onclick="window.location.href='news-events-template.html?id=${eventId}'">
                     <div class="event-card-content">
                         <div class="event-card-meta">
                             <span class="event-date"><i class="fas fa-calendar"></i> ${item.date}</span>
